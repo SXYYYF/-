@@ -48,7 +48,7 @@ public class NewsController {
     }
     @GetMapping("/toupdate")
     public String toUpdate(Long nid,Model model){
-        News news = newsService.queryNewsBynid(nid);
+        News news = newsService.queryNewsByNid(nid);
         List<Topic> topics = topicService.queryAllTopics();
         model.addAttribute("topics",topics);
         model.addAttribute("news",news);

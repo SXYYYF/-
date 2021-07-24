@@ -78,11 +78,7 @@ public class NewsServiceImpl implements NewsService {
     public boolean isNewsExists(Long ntid) {
         return newsDao.existsNewsByNtid(ntid);
     }
-//通过nid查询新闻
-    @Override
-    public News queryNewsBynid(Long nid) {
-        return newsDao.queryNewsBynid(nid);
-    }
+
 //修改新闻
     @Override
     public News updateNews(News news) {

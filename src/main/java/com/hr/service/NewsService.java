@@ -17,7 +17,7 @@ public interface NewsService {
      List<News> queryNewsByTname(String name);
 
      List<News> queryNewsByTid(Long tid);
-
+     //通过nid查询新闻
      News queryNewsByNid(Long nid);
      //分页查询
      Page queryNewsByPage(int pageNo);
@@ -26,8 +26,6 @@ public interface NewsService {
 
      boolean isNewsExists(Long ntid);
 
-     //通过nid查询新闻
-     News queryNewsBynid(Long nid);
 //修改新闻
      News updateNews(News news);
      //添加新闻

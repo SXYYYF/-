@@ -34,8 +34,7 @@ public interface NewsDao extends PagingAndSortingRepository<News, Long> {
     List<News> getNewsByPage(@Param("index") int index,@Param("pageSize") int pageSize);
 
      boolean existsNewsByNtid(Long ntid);
-//通过nid查询新闻
-     News queryNewsBynid(Long nid);
+
 
     @Override
     void deleteById(Long nid);
