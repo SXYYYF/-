@@ -86,8 +86,8 @@ public class TopicController {
     }
     @GetMapping("newsexists")
     @ResponseBody
-    public Object isNewsExists(Long tid){
+    public Boolean isNewsExists(Long tid){
         boolean newsExists = newsService.isNewsExists(tid);
-        return "{\"result\":\""+newsExists+"\"}";
+        return newsExists;
     }
 }

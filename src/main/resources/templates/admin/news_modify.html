@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>新闻中国</title>
+    <link href="/css/admin.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="main">
+    <div th:replace="admin/common :: #top"></div>
+    <div th:replace="admin/common :: #opt_list"></div>
+    <div id="opt_area">
+        <h1> 修改新闻： </h1>
+        <form th:action="@{/news/doupdate}" method="post">
+            <p>
+                <label> 主题 </label>
+                <select name="ntid">
+                    <option th:each="topic:${topics}"  th:value='${topic.tid}' th:text="${topic.tname}" th:selected="${topic.tid eq news.ntid}"></option>
+                </select>
+                <input type="hidden" name="nid" th:value="${news.nid}"/>
+                <input type="hidden" name="ncreateDate" th:value="${#dates.format(news.ncreateDate,'yyyy-MM-dd HH:mm:ss')}"/>
+            </p>
+            <p>
+                <label> 标题 </label>
+                <input name="ntitle" type="text" class="opt_input" th:value="${news.ntitle}"/>
+            </p>
+            <p>
+                <label> 作者 </label>
+                <input name="nauthor" type="text" class="opt_input" th:value="${news.nauthor}"/>
+            </p>
+            <p>
+                <label> 摘要 </label>
+                <textarea name="nsummary" cols="40" rows="3" th:text="${news.nsummary}"></textarea>
+            </p>
+            <p>
+                <label> 内容 </label>
+                <textarea name="ncontent" cols="70" rows="10" th:text="${news.ncontent}"> </textarea>
+            </p>
+           
+            <input type="submit" value="提交" class="opt_sub"/>
+            <input type="reset" value="重置" class="opt_sub"/>
+        </form>
+       
+    </div>
+    <div th:replace="admin/common :: #footerbar"></div>
+</div>
+</body>
+</html>	

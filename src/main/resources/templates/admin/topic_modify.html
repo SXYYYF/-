@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>新闻中国</title>
+    <link href="/css/admin.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="main">
+    <div th:replace="admin/common :: #top"></div>
+    <div th:replace="admin/common :: #opt_list"></div>
+    <div id="opt_area">
+        <h1 id="opt_type"> 修改主题： </h1>
+        <form th:action="@{/topic/doupdate}" method="post">
+            <input type="hidden" name="tid" th:value="${topic.tid}">
+            <p>
+                <label> 主题名称 </label>
+                <input name="tname" type="text" class="opt_input" th:value="${topic.tname}"/>
+                <span th:text="${error}" style="color: red"></span>
+            </p>
+            <input type="submit" value="提交" class="opt_sub"/>
+            <input type="reset" value="重置" class="opt_sub"/>
+        </form>
+    </div>
+    <div th:replace="admin/common :: #footerbar"></div>
+</div>
+</body>
+</html>	
